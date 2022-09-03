@@ -1,0 +1,17 @@
+.mainbody{
+    text-align: center;
+}
+label {
+    display: inline-block;
+    text-align: left;
+}
+.correct{
+    color: green;
+}
+.wrong{
+    color: red;
+}
+
+form {
+margin: 1em;
+}
