@@ -8,6 +8,7 @@ var currConj;
 var expAns = ""
 const checkboxes = Array.from(document.querySelectorAll("input[type='checkbox']"))
 const verbInfo = document.getElementById("verbname")
+const tenseInfo = document.getElementById("verbtense")
 const inputText = document.getElementById("verbConj")
 const inputLabel = document.getElementById("verbLabel")
 const feedback = document.getElementById("feedback")
@@ -36,15 +37,16 @@ function updateWord(){
             conj = getConjugation(v)
             
         } while (!checkboxes.some(x => x.checked && x.name==conj[0]));
-        feedback.innerHTML = ""
-        verbInfo.innerHTML = "Conjugate <u>" + v + "</u> in the <em>" + conj[0] +"</em>:"
+        feedback.innerHTML = "<div class='answer'></div><br><br>"
+        verbInfo.innerHTML = "<u>" + v + "</u>"
+        tenseInfo.innerHTML = "<em>" + conj[0] +"</em>:"
         currVerb = v
         currConj = conj
         var i = Math.floor(Math.random()*conj[1].length)
         var aux = conj[1][i].split(/\'| /)
         person = aux.shift()
         expAns = aux.join(" ")
-        inputLabel.innerHTML = person
+        inputLabel.innerHTML = person + ((person=="j")?"'":"");
         inputText.value = ""
     }
 }
@@ -52,10 +54,32 @@ function updateWord(){
 function check(){
     if (expAns !=""){
         if (expAns == inputText.value)
-            feedback.innerHTML = '<span class="correct">Correct!</span>'
+            feedback.innerHTML = '<div class="correct answer">Correct!</div>'
         else
-            feedback.innerHTML = `<span class="wrong">Wrong!</span><br>The right answer is <u>${expAns}</u>`
+            feedback.innerHTML = `<div class="wrong answer">Wrong!</div>The right answer is <u>${expAns}</u>`
     }
 
 }
 
+
+// 
+//
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+document.querySelector("#verbConj").addEventListener("keyup",(event)=>{
+    if(event.keyCode==38)
+        updateWord()
+})
