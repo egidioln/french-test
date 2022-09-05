@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="conjugationTest.css">
 
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>French Conjugation Test</title>
 </head>
@@ -21,10 +21,16 @@
         <h3>in the</h3>
         <p id="verbtense"></p>
         <form action="javascript:check()" autocomplete="off">
-            <label id="verbLabel" for="verbConj"></label>
-            <input id="verbConj" type="text" autocomplete="false">
-            <input id="checkBtn" type="button" onclick="check()" value="Check">
-            <input id="otherBtn" type="button" onclick="updateWord()" value="Other Word">
+            <div class="d-flex justify-content-center">
+                <div class="col-auto">
+                    <label class="col-form-label" id="verbLabel" for="verbConj"></label>
+                </div>
+                <div class="col-auto">
+                    <input class="form-control" id="verbConj" type="text" autocomplete="false">
+                </div>
+            </div>
+            <input class="btn btn-primary" id="checkBtn" type="button" onclick="check()" value="Check">
+            <input class="btn btn-secondary" id="otherBtn" type="button" onclick="updateWord()" value="Other Word">
         </form>
         <p id="feedback"></p>
         <!-- <button type="button" class="collapsible">Select Tenses</button> -->
