@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="conjugationTest.css">
+
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
-    <title>Conjugation Test</title>
+    <title>French Conjugation Test</title>
 </head>
 <body>
-    <div class="mainbody">
-    <h4 id="title">Conjugator Test</h4>
-    <h3>Conjugate</h3>
-    <div id="verbname"></div>
-    <h3>in the</h3>
-    <div id="verbtense"></div>
+    <div class="container mainbody">
+        <div class="container" id="title">
+            <h4>French Conjugator Test</h4>
+        </div>
+        <h3>Conjugate</h3>
+        <p id="verbname"></p>
+        <h3>in the</h3>
+        <p id="verbtense"></p>
         <form action="javascript:check()" autocomplete="off">
             <label id="verbLabel" for="verbConj"></label>
             <input id="verbConj" type="text" autocomplete="false">
@@ -21,95 +27,101 @@
             <input id="otherBtn" type="button" onclick="updateWord()" value="Other Word">
         </form>
         <p id="feedback"></p>
-        <button type="button" class="collapsible">Select Tenses</button>
-        <div class="tenses">
-            <div class="tense">
-                <label id="labelt0" for="t0"> Présent (Present) - Indicatif (Indicative)</label>
-                <input type="checkbox" checked="True" name="Présent (Present) - Indicatif (Indicative)" id="t0"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt1" for="t1"> Passé composé (Present perfect) - Indicatif (Indicative)</label>
-                <input type="checkbox" name="Passé composé (Present perfect) - Indicatif (Indicative)" id="t1"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt2" for="t2"> Imparfait (Imperfect) - Indicatif (Indicative)</label>
-                <input type="checkbox" name="Imparfait (Imperfect) - Indicatif (Indicative)" id="t2"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt3" for="t3"> Plus-que-parfait (Pluperfect) - Indicatif (Indicative)</label>
-                <input type="checkbox" name="Plus-que-parfait (Pluperfect) - Indicatif (Indicative)" id="t3"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt4" for="t4"> Passé simple (Simple past) - Indicatif (Indicative)</label>
-                <input type="checkbox" name="Passé simple (Simple past) - Indicatif (Indicative)" id="t4"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt5" for="t5"> Passé antérieur (Past perfect) - Indicatif (Indicative)</label>
-                <input type="checkbox" name="Passé antérieur (Past perfect) - Indicatif (Indicative)" id="t5"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt6" for="t6"> Futur simple (Future) - Indicatif (Indicative)</label>
-                <input type="checkbox" name="Futur simple (Future) - Indicatif (Indicative)" id="t6"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt7" for="t7"> Futur antérieur (Past future) - Indicatif (Indicative)</label>
-                <input type="checkbox" name="Futur antérieur (Past future) - Indicatif (Indicative)" id="t7"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt8" for="t8"> Présent (Present) - Conditionnel (Conditional)</label>
-                <input type="checkbox" name="Présent (Present) - Conditionnel (Conditional)" id="t8"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt9" for="t9"> Passé (Perfect) - Conditionnel (Conditional)</label>
-                <input type="checkbox" name="Passé (Perfect) - Conditionnel (Conditional)" id="t9"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt10" for="t10"> Présent (Present) - Subjonctif (Subjunctive)</label>
-                <input type="checkbox" name="Présent (Present) - Subjonctif (Subjunctive)" id="t10"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt11" for="t11"> Passé (Past) - Subjonctif (Subjunctive)</label>
-                <input type="checkbox" name="Passé (Past) - Subjonctif (Subjunctive)" id="t11"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt12" for="t12"> Imparfait (Imperfect) - Subjonctif (Subjunctive)</label>
-                <input type="checkbox" name="Imparfait (Imperfect) - Subjonctif (Subjunctive)" id="t12"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt13" for="t13"> Plus-que-parfait (Pluperfect) - Subjonctif (Subjunctive)</label>
-                <input type="checkbox" name="Plus-que-parfait (Pluperfect) - Subjonctif (Subjunctive)" id="t13"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt14" for="t14"> Présent (Present) - Impératif (Imperative)</label>
-                <input type="checkbox" name="Présent (Present) - Impératif (Imperative)" id="t14"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt15" for="t15"> Passé (Past) - Impératif (Imperative)</label>
-                <input type="checkbox" name="Passé (Past) - Impératif (Imperative)" id="t15"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt16" for="t16"> Présent (Present) - Infinitif (Infinitive)</label>
-                <input type="checkbox" name="Présent (Present) - Infinitif (Infinitive)" id="t16"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt17" for="t17"> Passé (Past) - Infinitif (Infinitive)</label>
-                <input type="checkbox" name="Passé (Past) - Infinitif (Infinitive)" id="t17"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt18" for="t18"> Présent (Present) - Participe (Participle)</label>
-                <input type="checkbox" name="Présent (Present) - Participe (Participle)" id="t18"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt19" for="t19"> Passé (Past) - Participe (Participle)</label>
-                <input type="checkbox" name="Passé (Past) - Participe (Participle)" id="t19"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt20" for="t20"> Présent (Present) - Gérondif (Gerund)</label>
-                <input type="checkbox" name="Présent (Present) - Gérondif (Gerund)" id="t20"><br>
-            </div>
-            <div class="tense">
-                <label id="labelt21" for="t21"> Passé (Past) - Gérondif (Gerund)</label>
-                <input type="checkbox" name="Passé (Past) - Gérondif (Gerund)" id="t21"><br>
+        <!-- <button type="button" class="collapsible">Select Tenses</button> -->
+        
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseTenses" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Select Tenses
+          </a>  
+        <div class="collapse" id="collapseTenses">
+            <div class="card card-body form-check" >
+                <div class="tense label">
+                    <label  class="form-check-label" id="labelt0" for="t0"> Présent (Present) - Indicatif (Indicative)</label>
+                    <input class="form-check-input" type="checkbox" checked="True" name="Présent (Present) - Indicatif (Indicative)" id="t0"><br>
+                </div>
+                <div class="tense">
+                    <label  class="form-check-label" id="labelt1" for="t1">Passé composé (Present perfect) - Indicatif (Indicative)</label>
+                    <input class="form-check-input" type="checkbox" name="Passé composé (Present perfect) - Indicatif (Indicative)" id="t1"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt2" for="t2"> Imparfait (Imperfect) - Indicatif (Indicative)</label>
+                    <input class="form-check-input" type="checkbox" name="Imparfait (Imperfect) - Indicatif (Indicative)" id="t2"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt3" for="t3"> Plus-que-parfait (Pluperfect) - Indicatif (Indicative)</label>
+                    <input class="form-check-input" type="checkbox" name="Plus-que-parfait (Pluperfect) - Indicatif (Indicative)" id="t3"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt4" for="t4"> Passé simple (Simple past) - Indicatif (Indicative)</label>
+                    <input class="form-check-input" type="checkbox" name="Passé simple (Simple past) - Indicatif (Indicative)" id="t4"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt5" for="t5"> Passé antérieur (Past perfect) - Indicatif (Indicative)</label>
+                    <input class="form-check-input" type="checkbox" name="Passé antérieur (Past perfect) - Indicatif (Indicative)" id="t5"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt6" for="t6"> Futur simple (Future) - Indicatif (Indicative)</label>
+                    <input class="form-check-input" type="checkbox" name="Futur simple (Future) - Indicatif (Indicative)" id="t6"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt7" for="t7"> Futur antérieur (Past future) - Indicatif (Indicative)</label>
+                    <input class="form-check-input" type="checkbox" name="Futur antérieur (Past future) - Indicatif (Indicative)" id="t7"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt8" for="t8"> Présent (Present) - Conditionnel (Conditional)</label>
+                    <input class="form-check-input" type="checkbox" name="Présent (Present) - Conditionnel (Conditional)" id="t8"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt9" for="t9"> Passé (Perfect) - Conditionnel (Conditional)</label>
+                    <input class="form-check-input" type="checkbox" name="Passé (Perfect) - Conditionnel (Conditional)" id="t9"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt10" for="t10"> Présent (Present) - Subjonctif (Subjunctive)</label>
+                    <input class="form-check-input" type="checkbox" name="Présent (Present) - Subjonctif (Subjunctive)" id="t10"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt11" for="t11"> Passé (Past) - Subjonctif (Subjunctive)</label>
+                    <input class="form-check-input" type="checkbox" name="Passé (Past) - Subjonctif (Subjunctive)" id="t11"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt12" for="t12"> Imparfait (Imperfect) - Subjonctif (Subjunctive)</label>
+                    <input class="form-check-input" type="checkbox" name="Imparfait (Imperfect) - Subjonctif (Subjunctive)" id="t12"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt13" for="t13"> Plus-que-parfait (Pluperfect) - Subjonctif (Subjunctive)</label>
+                    <input class="form-check-input" type="checkbox" name="Plus-que-parfait (Pluperfect) - Subjonctif (Subjunctive)" id="t13"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt14" for="t14"> Présent (Present) - Impératif (Imperative)</label>
+                    <input class="form-check-input" type="checkbox" name="Présent (Present) - Impératif (Imperative)" id="t14"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt15" for="t15"> Passé (Past) - Impératif (Imperative)</label>
+                    <input class="form-check-input" type="checkbox" name="Passé (Past) - Impératif (Imperative)" id="t15"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt16" for="t16"> Présent (Present) - Infinitif (Infinitive)</label>
+                    <input class="form-check-input" type="checkbox" name="Présent (Present) - Infinitif (Infinitive)" id="t16"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt17" for="t17"> Passé (Past) - Infinitif (Infinitive)</label>
+                    <input class="form-check-input" type="checkbox" name="Passé (Past) - Infinitif (Infinitive)" id="t17"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt18" for="t18"> Présent (Present) - Participe (Participle)</label>
+                    <input class="form-check-input" type="checkbox" name="Présent (Present) - Participe (Participle)" id="t18"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt19" for="t19"> Passé (Past) - Participe (Participle)</label>
+                    <input class="form-check-input" type="checkbox" name="Passé (Past) - Participe (Participle)" id="t19"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt20" for="t20"> Présent (Present) - Gérondif (Gerund)</label>
+                    <input class="form-check-input" type="checkbox" name="Présent (Present) - Gérondif (Gerund)" id="t20"><br>
+                </div>
+                <div class="tense">
+                    <label id="labelt21" for="t21"> Passé (Past) - Gérondif (Gerund)</label>
+                    <input class="form-check-input" type="checkbox" name="Passé (Past) - Gérondif (Gerund)" id="t21"><br>
+                </div>
             </div>
         </div>
     </div>

@@ -37,7 +37,7 @@ function updateWord(){
             conj = getConjugation(v)
             
         } while (!checkboxes.some(x => x.checked && x.name==conj[0]));
-        feedback.innerHTML = "<div class='answer'></div><br><br>"
+        feedback.innerHTML = "<div class='answer'></div>"
         verbInfo.innerHTML = "<u>" + v + "</u>"
         tenseInfo.innerHTML = "<em>" + conj[0] +"</em>:"
         currVerb = v
@@ -45,9 +45,19 @@ function updateWord(){
         var i = Math.floor(Math.random()*conj[1].length)
         var aux = conj[1][i].split(/\'| /)
         person = aux.shift()
+        if (person == "que")
+            person += " " + aux.shift()
+        if (person == "qu")
+            person += "'" + aux.shift()
+        if(aux.length==0){
+            aux.unshift(person)
+            person = ""
+        }
         expAns = aux.join(" ")
-        inputLabel.innerHTML = person + ((person=="j")?"'":"");
+        inputLabel.innerHTML = person + ((person[person.length-1]=="j")?"'":"");
         inputText.value = ""
+        if (person == "-")
+            updateWord()
     }
 }
 
@@ -64,22 +74,28 @@ function check(){
 
 // 
 //
-var coll = document.getElementsByClassName("collapsible");
-var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
+
+// var coll = document.getElementsByClassName("collapsible");
+// var i;
+
+// for (i = 0; i < coll.length; i++) {
+//   coll[i].addEventListener("click", function() {
+//     this.classList.toggle("active");
+//     var content = this.nextElementSibling;
+//     if (content.style.display === "block") {
+//       content.style.display = "none";
+//     } else {
+//       content.style.display = "block";
+//     }
+//   });
+// }
 
 document.querySelector("#verbConj").addEventListener("keyup",(event)=>{
     if(event.keyCode==38)
         updateWord()
 })
+
+$('#collapseTenses').on('shown.bs.collapse', function () {
+    this.scrollIntoView();
+  });

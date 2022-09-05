@@ -46,9 +46,10 @@ form {
     text-align: left;
 }
 
+/* 
 label {
     white-space:nowrap;
-}
+} */
 #verbname,#verbtense {
     font-size: x-large;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -59,3 +60,4 @@ label {
     background-color: aliceblue;
     padding: 2em;
 }
+
