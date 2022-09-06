@@ -63,7 +63,8 @@ function updateWord(){
 
 function check(){
     if (expAns !=""){
-        if (expAns == inputText.value)
+        var text = inputText.value.split(" ").filter(x=>x.length>0).join(" ")
+        if (expAns == text)
             feedback.innerHTML = '<div class="correct answer">Correct!</div>'
         else
             feedback.innerHTML = `<div class="wrong answer">Wrong!</div>The right answer is <u>${expAns}</u>`
