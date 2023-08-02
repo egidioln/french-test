@@ -11,9 +11,9 @@ import random
 
 from bs4 import BeautifulSoup
 
-scrap = False
+scrap = True
 
-language = "dutch"
+language = "german"
 
 verb_list_path = Path(f"scrapers/{language}_verbs.txt")
 

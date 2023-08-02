@@ -21,12 +21,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>French Conjugation Test</title>
+    <title>Conjugation Test</title>
 </head>
 <body>
     <div class="container mainbody">
         <div class="container" id="title">
-            <h4>French Conjugator Test</h4>
+            <h4>Conjugator Test</h4>
+        </div>
+        <div class="container" id="languange-selection">
+            <select id="languageDropdown" onchange="updateLanguage()">
+                <option value="french">French</option>
+                <option value="dutch">Dutch</option>
+                <option value="german">German</option>
+            </select>
         </div>
         <h3>Conjugate</h3>
         <p id="verbname"></p>
