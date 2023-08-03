@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 
 scrap = True
 
-language = "german"
+language = "portuguese"
 
 verb_list_path = Path(f"scrapers/{language}_verbs.txt")
 

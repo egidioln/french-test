@@ -1,7 +1,8 @@
 const verb_data = {
     "french": null,
     "dutch": null,
-    "german": null
+    "german": null,
+    "portuguese": null
 }
 
 var currLanguage = "french"
@@ -84,7 +85,7 @@ function updateWord() {
         var person = pronouns[i]
 
         expAns = conj[person]
-        inputLabel.innerHTML = person + "  ";
+        inputLabel.innerHTML = person;
         inputText.value = ""
         if (expAns == "-")
             updateWord()
